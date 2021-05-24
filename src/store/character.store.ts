@@ -1,9 +1,9 @@
-import { action, makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 export interface ICharacter {
-  id: string;
+  id: number;
   name?: string;
-  pic?: string;
+  image?: string;
   gender?: string,
   status?: string;
 }
@@ -24,9 +24,7 @@ export class CharacterStore implements ICharacterStore {
     makeAutoObservable(this);
   }
 
-  @action getName = (name: string): void => {
-    // if (rootStore.authStore.id) {
-    //   this.name = name;
-    // }
+  addFavouriteCharacter = (index: number): void => {
+    this.favouriteCharacters.push(this.characters[index]);
   }
 }
