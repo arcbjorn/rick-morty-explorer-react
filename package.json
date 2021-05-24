@@ -19,6 +19,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "css": "yarn postcss ./src/styles/tailwind.css -o ./src/styles/tailwind.generated.css",
+    "prestart": "yarn css",
+    "prebuild": "yarn cross-env NODE_ENV=production npm run css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,5 +44,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
   }
 }
